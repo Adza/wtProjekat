@@ -1,3 +1,3 @@
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize("wtspirala","root","",{host:"127.0.0.1",dialect:"mysql"});
+const sequelize = new Sequelize("baza","wtspirala","wtspirala",{host:"mysql-57-centos7",dialect:"mysql"});
 module.exports = sequelize;
