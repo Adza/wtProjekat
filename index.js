@@ -30,13 +30,13 @@ app.use("/", express.static('public'));
 //ZADATAK4
 app.post('/datoteka',function(req,res){
     var tijelo = req.body;
-    let podaci = tijelo['indexi'];
-    let redovi = podaci.split('\r\n');
+    var podaci = tijelo['indexi'];
+    var redovi = podaci.split('\r\n');
     //console.log(redovi);
-    let indeksi;
+    var indeksi;
     for(var i = 0; i < redovi.length; i++){
         indeksi = redovi[i].split(',');
-        let regex = /^\d{5}$/;
+        var regex = /^\d{5}$/;
         if(indeksi.length != 6)
             throw 'Nije dodano tacno 6 indeksa. Red: ' + redovi[i];
         var ima = false;
@@ -52,10 +52,10 @@ app.post('/datoteka',function(req,res){
         if(ima) break;
     }
     if(!ima){
-        let broj = tijelo['broj_spirale'];
-        let fajl = "spisakS" + broj + ".json";
+        var broj = tijelo['broj_spirale'];
+        var fajl = "spisakS" + broj + ".json";
         //podaci = JSON.stringify(indeksi, null, 2);
-        let upis = '[\n';
+        var upis = '[\n';
         for(i = 0; i < redovi.length;i++)
         {
             upis += '[' + redovi[i] + ']';
@@ -80,7 +80,7 @@ app.post('/datoteka',function(req,res){
         res.status(400).json({message:"Podaci nisu u traženom formatu!", data:null});
         return;
     }
-    let fajl = "markS" + req.body.spirala + req.body.index + ".json";
+    var fajl = "markS" + req.body.spirala + req.body.index + ".json";
     fs.appendFile(fajl,JSON.stringify(req.body.sadrzaj, null, 2),function(err){
         if(err) throw err;
         res.json({message:"Uspješno kreirana datoteka " + fajl, data:req.body.sadrzaj});
@@ -164,6 +164,7 @@ app.post("/register", function(req,res){
     }
 });
 //Spirala4
+
 app.get("/pretraga", function(req,res){
     LicniPodaci.findAll().then(function(rez){
         var ispis = '';
@@ -172,7 +173,7 @@ app.get("/pretraga", function(req,res){
         {
             var varijable = rez[i];
             if(varijable.brIndexa == null){
-                let dugme = '';
+                var dugme = '';
                 if(varijable.verify){
                     dugme = 'Unverify'
                 }
@@ -201,8 +202,8 @@ app.get("/pretraga", function(req,res){
 app.post("/pretragaKorisnicko", function(req, res){
     
     Korisnik.findAll().then(function(rez){
-        let ispis = '';
-    let redovi = [];
+        var ispis = '';
+    var redovi = [];
         for(var i = 0; i < rez.length; i++){
             if(rez[i].username === req.body['traziKorisnika']){
                 var user = rez[i].LicniPodaciId;
@@ -210,7 +211,7 @@ app.post("/pretragaKorisnicko", function(req, res){
                     console.log('USaooo');
                     var varijable = rez1.dataValues;
                     if(varijable.brIndexa == null){
-                        let dugme = '';
+                        var dugme = '';
                         if(varijable.verify){
                             dugme = 'Unverify'
                         }
@@ -237,11 +238,11 @@ app.post("/pretragaKorisnicko", function(req, res){
 });
 
 app.post("/login",function(req,res){
-    let kor;
-    let pronasao = false;
+    var kor;
+    var pronasao = false;
     if(req.body['username'] && req.body['password']){
-        let bodyUsername = req.body['username'];
-        let bodyPassword = req.body['password'];
+        var bodyUsername = req.body['username'];
+        var bodyPassword = req.body['password'];
         Korisnik.findOne({where:{username:bodyUsername}}).then(function(rez){
             if(rez){
                 var kor = rez.dataValues;
@@ -280,7 +281,7 @@ app.get("/logout", function(req, res){
 });
 
 app.post("/verify/:id", function(req,res){
-    let id = req.params.id;
+    var id = req.params.id;
     LicniPodaci.findById(id).then(function(rez){
         if(rez.verify){
             rez.updateAttributes({
