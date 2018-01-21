@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use("/", express.static('public'));
 //ZADATAK4
 app.post('/datoteka',function(req,res){
-    let tijelo = req.body;
+    var tijelo = req.body;
     let podaci = tijelo['indexi'];
     let redovi = podaci.split('\r\n');
     //console.log(redovi);
