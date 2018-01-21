@@ -1,0 +1,119 @@
+<link rel="stylesheet" type="text/css" href="login.css">
+<link rel="stylesheet" type="text/css" href="common.css">
+    <div class="red">
+    	<div class="kolona dva" id="login_form">
+        <form action="http://localhost:3000/login" method="POST">
+          <table>
+              <tr>
+                <td colspan="2"><h2>Sign in</h2></td>
+              </tr>
+             <tr>
+               <td colspan="2"><input type="text" id="fname" name="username" placeholder="Username.."></td>
+             </tr>
+             <tr>
+               <td  colspan="2"><input type="password" id="lname" name="password" placeholder="Password.."></td>
+             </tr>
+             <tr>
+               <td><input type="reset" value="Reset"></td>
+               <td><button class="button">LogIn</button></td>
+             </tr>
+          </table>
+        </form>
+      </div>
+    	<div class="kolona dva" id="register_form">
+        <form>
+            <table>
+              <tr>
+                <td colspan="2"><h2>Sign up</h2></td>
+              </tr>
+              <tr>
+                <td><input type="button" value="Nastavnik"  onclick="nastavnikPrikazi('student', 'nastavnik')" id="nastavnik_button"></td>
+                <td><input type="button" value="Student" onclick="studnetkPrikazi('student', 'nastavnik')" id="student_button"></td>
+              </tr>
+            </table>
+          </form>
+          <!--NASTAVNIK-->
+          <form  id="nastavnik" action="http://localhost:3000/register" method="POST">
+            <table>
+               <tr>
+                 <td colspan="2"><input type="text" name="imePrezimeNastavnik" id="name" placeholder="Ime i prezime.." onfocusout="validiranjeImePrezime('name')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="usernameNastavnik" id="korIme" placeholder="Korisnicko ime.."></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="password" name="passwordNastavnik" id="password" placeholder="Password.." onfocusout="validiranjePassworda('password')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="password" name="conPasswordNastavnik" id="conpassword" placeholder="Potvrda passworda.." onfocusout="validiranjeConPassworda('password','conpassword')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="faxMailNastavnik" id="faxmail" placeholder="Fakultetski email.." onfocusout="validiranjeFaxMail('faxmail')"></td>
+               </tr>
+               <tr>
+                 <!--PROVJERITI KAKO IDE VALIDACIJA-->
+                 <td colspan="2"><input type="text" name="maxGrupa" id="maxgrupe" placeholder="Maksimalan broj grupa.." onfocusout="validiranjeGrupu('maxgrupe')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="regex" id="regex" placeholder="Regex.."></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="trSemestar" id="trSemestar" placeholder="Trenutni semestar.."></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="trAkaGodina" id="akademskagod" placeholder="Trenutna akademska godina.."  onfocusout="validiranjeAkademskeGodine('akademskagod')"></td>
+               </tr>
+               <tr>
+                 <td><button class="button">Register</button></td>
+               </tr>
+            </table>
+          </form>
+          <!--STUDENT-->
+          <form id="student" action="http://localhost:3000/register" method="POST">
+            <table>
+               <tr>
+                 <td colspan="2"><input type="text" name="imePrezimeStudent" id="nameSt" placeholder="Ime i prezime.." onfocusout="validiranjeImePrezimeSt('nameSt')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="brIndexa" id="index" placeholder="Broj indexa.." onfocusout="validiranjeIndexa('index')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2">
+                   <select name="grupa">
+                   <option value="wt1">WT1</option>
+                   <option value="wt2">WT2</option>
+                   <option value="wt3">WT3</option>
+                   <option value="wt4">WT4</option>
+                   <option value="wt5">WT5</option>
+                   <option value="wt4">WT6</option>
+                   <option value="wt4">WT7</option>
+                   </select>
+                 </td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="akaGodinaStudent" id="akademskagodinast" placeholder="Akademska godina.." onfocusout="validiranjeAkademskaGodinaSt('akademskagodinast')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="password" name="passwordStudent" id="passwordSt" placeholder="Password.." onfocusout="validiranjePasswordaSt('passwordSt')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="password" name="conPasswordStudent" id="conpasswordSt" placeholder="Potvrda passworda.." onfocusout="validiranjeConPasswordaSt('conpasswordSt')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="bitUrl" id="bitbucket_url" placeholder="Bitbucket URL.." onfocusout="validiranjeBitbucketUrl('bitbucket_url')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="bitSsh" id="bitbucket_ssh" placeholder="Bitbucket SSH.." onfocusout="validiranjeBitbucketSsh('bitbucket_ssh')"></td>
+               </tr>
+               <tr>
+                 <td colspan="2"><input type="text" name="imeRepa" id="naziv_repa" placeholder="Naziv repozitorija.." onfocusout="validiranjeNazivRepa('naziv_repa')"></td>
+               </tr>
+               <tr>
+                 <td><button class="button">Register</button></td>
+               </tr>
+            </table>
+          </form>
+          <div id="divGreske">
+          </div>
+      </div>
+    </div>

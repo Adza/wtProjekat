@@ -1,0 +1,14 @@
+
+ ###### 
+Zadaci dovreni. Korisnihko ime nije validirano. Potvrda ifre, trenutni semestar, regex, ime i prezime, akademsku godinu ne validira ispravno. Kada se greka ispravi, poruke se ne uklanjaju. Kod je razumljiv. Vreno je odvajanje JSa od HTMLa, a takoper JS se sastoji iz vie datoteka. HTML nije validiran. Sintasnih greaka u JSu nema. Kod se ne ponavlja i JS je u potpunosti odvojen od HTMLa. Stranice se ponaaju ohekivano u testiranim browserima.
+ ###### 
+Zamjena redova radi kao sto je i zadano u zadatku. Elementi u login i dugmad u registraciji ispadaju iz okvira na sirini ekrana 700-920. Greske se ispisuju na odmah vidljivom i intuitivnom mjestu i prilikom prebacivanja sa forme nastavnika na formu studenta, i obrnuto, div sa greskama se ocisti. Validacije su uglavnom dobre uz nekoliko gresaka. Validacija imena vraca true i kada se iza crtice ili apostrofa stavi malo slovo. Prihvata password i duzi od 20 karaktera. Trenutni semestar bi trebao biti ili 0 ili 1, a validacija je uspjesna za svaki broj. U validaciji URL i SSH unutar username-a ne mogu biti crtice.
+
+ ###### 
+dobro - svi zadaci su uradjeni; kod je napisan razumljivo i citko; sve greske se pisu i brisu kako i treba; uneseni oblik repozitorija kod nastavnika odmah vrijedi za registraciju studenta; lose - pocetna forma za registraciju je za nastavnike, a treba studente; validacija za ime i prezime je uradjena da svaka rijec mora imati 3 do 12 slova (a ne BAR jedna rijec); kod registracije studenta se moze birati samo grupa 1-7 a kod nastavnika se maxGrupa moze postaviti samo na brojeve 1-7 (nastavnik treba postaviti maxGrupu i omogucit studentima da se registruju u neku grupu od 1 do maxGrupa); moguc je unos password-a veci od 20 karaktera;
+
+ ###### 
+Cijela stranica izgleda lijepo. Dizajn login dijela mi se posebno svidio. Nije korišteno previše boja, tako da ne odvlači pažnju. Kodovi su čitljivi. Prilikom smanjivanja se pojavljuje horizontali scrollbar. Html kod kod login-a nije validiran. Sve greške su u vezi sa pozivom "onfocusout". Ostale stranice su validirane. Css kod je validiran. Što se tiče validacije polja za unos, brojevi u imenu i prezimenu prolaze provjeru što ne bi trebalo da može, te je moguće unijeti šifru sa preko 20 karaktera. Kada se prebaci sa forme "Nastavnik" na formu "Student" ostanu prethodne greške ukoliko ih je bilo. 
+
+ ###### 
+Urađeni svi zadaci. Validna sintaksa js. Jedan error u login.html. Prilikom prebacivanja sa forme studenta na formu nastavnika i obrnuto, one se ne refrešuju, tj. u slučaju da se naprave greške prilikom unosa podataka kod registracije studenta i onda se pređe na registraciju nastavnika, greške vezane za formu studenta se i dalje javljaju. Početna forma je registracija nastavnika, a trebala bi biti registracija studenta, kako je naglašeno u zadatku,  

@@ -1,0 +1,179 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	width: 100%;
+	margin: 0 auto;
+	min-width: 500px;
+	background-image: url('img/background_login.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+	background-size: cover;
+}
+
+.button_logout{
+  float: right;
+  margin-top:1%;
+}
+.red{
+	width:45%;
+	float:left;
+	min-height: 1px;
+  margin-top: 1%;
+  margin-left: 27%;
+}
+
+.kolona{
+	display: inline-block; /*Omogućava da se kolone prikažu bez da se float mora clearovati poslije*/
+	float: left;
+	min-height: 20px;
+}
+
+.kolona:first-child{
+	margin-left: 0px;
+}
+
+.kolona:last-child{
+	margin-right: 0px;
+}
+
+.kolona.cetri{
+	width: 100%;
+}
+.kolona.tri{
+	width: 74%;
+}
+.kolona.dva{
+	width: 47.5%;
+}
+.kolona.jedan{
+	width: 22%;
+
+}
+
+.button{
+  width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#nastavnik_button{
+	background-color: #357a38;
+}
+
+#login_form {
+  padding: 2px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-right: 3%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#register_form {
+  border-left: 1px solid black;
+  padding: 2px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#student{
+	display: none;
+}
+
+#divGreske {
+	height: auto;
+	width: 100%;
+	color: red;
+}
+
+#divZamjena {
+	height: 100px;
+	width: 100%;
+	background-color: blue;
+}
+h2 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+table {
+  width: 100%;
+	border: 0;
+}
+
+
+/*FORME*/
+input[type=text], input[type=password], select {
+    width: 100%;
+    padding: 7px 18px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box
+}
+
+
+input[type=button] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=reset] {
+    width: 100%;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+input[type=reset]:hover {
+    background-color: #ff3333;
+}
+
+
+@media only screen and (max-width: 700px){
+  .red{
+  	width:50%;
+  	float:left;
+  	min-height: 1px;
+    margin-top: 4%;
+    margin-left: 30%;
+  }
+  .kolona.dva{
+  	width: 90%;
+  }
+  #login_form {
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-right: 10%;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  #register_form {
+    border-left: 1px solid black;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}

@@ -1,0 +1,129 @@
+<link rel="stylesheet" type="text/css" href="unoskomentara.css">
+<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+<div class="red">
+  <div class="kolona jedan">
+    <button name="subject" type="submit" value="spirala1" class="button">Spirala 1</button>
+  </div>
+  <div class="kolona jedan">
+    <button name="subject" type="submit" value="spirala2" class="button">Spirala 2</button>
+  </div>
+  <div class="kolona jedan">
+    <button name="subject" type="submit" value="spriala3" class="button">Spirala 3</button>
+  </div>
+  <div class="kolona jedan">
+    <button name="subject" type="submit" value="spirala4" class="button">Spirala 4</button>
+  </div>
+</div>
+<div class="red table">
+  <div class="kolona cetri">
+    <table id="myTable">
+      <tr>
+        <td class="first_col">Sifra Studenta</td>
+        <td class="first_col">Link od repozitorija</td>
+        <td class="first_col">Komentar</td>
+        <td class="first_col">Ocjena</td>
+        <td class="first_col">Like/Dislike</td>
+      </tr>
+      <tr>
+        <td>Sifra studenta1</td>
+        <td>
+          <a href="#">Link od repozitorija</a>
+        </td>
+        <td>
+          <form>
+            <input type="text" name="tekst">
+          </form>
+        </td>
+        <td>
+          <form>
+            <input type="number" name="ocjene" min="1" max="5">
+          </form>
+        </td>
+        <td>
+          <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" onClick="MoveUp.call(this, 'prvi');"></i>
+          <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" onClick="MoveDown.call(this);"></i>
+        </td>
+      </tr>
+      <tr>
+        <td>Sifra studenta2</td>
+        <td>
+          <a href="#">Link od repozitorija</a>
+        </td>
+        <td>
+          <form>
+            <input type="text" name="tekst">
+          </form>
+        </td>
+        <td>
+          <form>
+            <input type="number" name="ocjene" min="1" max="5">
+          </form>
+        </td>
+        <td>
+          <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" onClick="MoveUp.call(this);"></i>
+          <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" onClick="MoveDown.call(this);"></i>
+        </td>
+      </tr>
+      <tr>
+        <td>Sifra studenta3</td>
+        <td>
+          <a href="#">Link od repozitorija</a>
+        </td>
+        <td>
+          <form>
+            <input type="text" name="tekst">
+          </form>
+        </td>
+        <td>
+          <form>
+            <input type="number" name="ocjene" min="1" max="5">
+          </form>
+        </td>
+        <td>
+          <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" onClick="MoveUp.call(this);"></i>
+          <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" onClick="MoveDown.call(this);"></i>
+        </td>
+      </tr>
+      <tr>
+        <td>Sifra studenta4</td>
+        <td>
+          <a href="#">Link od repozitorija</a>
+        </td>
+        <td>
+          <form>
+            <input type="text" name="tekst">
+          </form>
+        </td>
+        <td>
+          <form>
+            <input type="number" name="ocjene" min="1" max="5">
+          </form>
+        </td>
+        <td>
+          <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" onClick="MoveUp.call(this);"></i>
+          <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" onClick="MoveDown.call(this);"></i>
+        </td>
+      </tr>
+      <tr>
+        <td>Sifra studenta5</td>
+        <td>
+          <a href="#">Link od repozitorija</a>
+        </td>
+        <td>
+          <form>
+            <input type="text" name="tekst">
+          </form>
+        </td>
+        <td id="ocjena_kolona">
+          <form>
+            <input type="number" name="ocjene" min="1" max="5">
+          </form>
+        </td>
+        <td>
+          <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" onClick="MoveUp.call(this);"></i>
+          <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true" onClick="MoveDown.call(this);"></i>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
