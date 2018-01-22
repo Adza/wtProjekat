@@ -11,6 +11,8 @@ const LicniPodaci = sequelize.import(__dirname+"/licniPodaci.js");
 const Rola = sequelize.import(__dirname+"/rola.js");
 const bcrypt = require('bcrypt');
 
+const Op = Sequelize.Op;
+
 Rola.sync().then(function()
 {
     Rola.findOrCreate({where: {id: 1}, defaults: {rola: 'Administrator'}})
