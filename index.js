@@ -12,7 +12,9 @@ const Rola = sequelize.import(__dirname+"/rola.js");
 const bcrypt = require('bcrypt');
 
 const Op = Sequelize.Op;
-
+Rola.drop();
+LicniPodaci.drop();
+Korisnik.drop();
 Rola.sync().then(function()
 {
     Rola.findOrCreate({where: {id: 1}, defaults: {rola: 'Administrator'}})
@@ -22,7 +24,7 @@ Rola.sync().then(function()
 });
 LicniPodaci.sync();
 Korisnik.sync().then(function(){
-    Korisnik.findOrCreate({where: {username: 'Admin'}, defaults: {password: '$2a$10$azbe41yIbM.asbvKF.AfHONVcSOI3bsw3.4fn7WrGOkrV3iwr7XU2', RolaId: 1}})
+    Korisnik.findOrCreate({where: {username: 'admin'}, defaults: {password: '$2a$10$8EXSvcr7rBxAb9S4Z1hILuKbo/iViUOdz417Y2NKFsJGG/tG2f8B2', RolaId: 1}})
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -117,16 +119,16 @@ app.post('/lista', function(req, res){
 app.post("/register", function(req,res){
     //NASTAVNIK
     if(req.body['imePrezimeNastavnik']&&req.body['usernameNastavnik']&&req.body['passwordNastavnik']&&req.body['conPasswordNastavnik']&&req.body['faxMailNastavnik']&&req.body['maxGrupa']&&req.body['regex']&&req.body['trSemestar']&&req.body['trAkaGodina']){
-        LicniPodaci.create({imePrezime:req.body['imePrezimeNastavnik'], 
-                                faxMail:req.body['faxMailNastavnik'],
-                                maxGrupa:req.body['maxGrupa'], 
-                                regex:req.body['regex'],
-                                trSemestar:req.body['trSemestar'],
-                                trAkaGodina:req.body['trAkaGodina'],
+        LicniPodaci.create({imePrezime:req.body['imePrezimeNastavnik'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'), 
+                                faxMail:req.body['faxMailNastavnik'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                maxGrupa:req.body['maxGrupa'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'), 
+                                regex:req.body['regex'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                trSemestar:req.body['trSemestar'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                trAkaGodina:req.body['trAkaGodina'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
                                 datumDodavanja:Date.now()})
                .then(function(zapis){
                 bcrypt.hash(req.body['passwordNastavnik'], 10, function(err, hash) {
-                    Korisnik.create({username:req.body['usernameNastavnik'], 
+                    Korisnik.create({username:req.body['usernameNastavnik'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'), 
                                     password:hash,
                                     LicniPodaciId:zapis.id,
                                     RolaId:2,
@@ -141,18 +143,18 @@ app.post("/register", function(req,res){
     }
     //STUDENT
     else if(req.body['imePrezimeStudent']&&req.body['brIndexa']&&req.body['akaGodinaStudent']&&req.body['passwordStudent']&&req.body['conPasswordStudent']&&req.body['bitUrl']&&req.body['bitSsh']&&req.body['imeRepa']){
-        LicniPodaci.create({imePrezime:req.body['imePrezimeStudent'], 
-                                brIndexa:req.body['brIndexa'],
-                                trAkaGodina:req.body['akaGodinaStudent'],
-                                grupa:req.body['grupa'],
-                                bitbucketUrl:req.body['bitUrl'],
-                                bitbucketSSH:req.body['bitSsh'],
-                                nazivRepozitorija:req.body['imeRepa'],
+        LicniPodaci.create({imePrezime:req.body['imePrezimeStudent'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'), 
+                                brIndexa:req.body['brIndexa'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                trAkaGodina:req.body['akaGodinaStudent'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                grupa:req.body['grupa'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                bitbucketUrl:req.body['bitUrl'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                bitbucketSSH:req.body['bitSsh'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
+                                nazivRepozitorija:req.body['imeRepa'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'),
                                 verify:null,
                                 datumDodavanja:Date.now()})
                .then(function(zapis){
                 bcrypt.hash(req.body['passwordStudent'], 10, function(err, hash) {
-                    Korisnik.create({username:req.body['imePrezimeStudent'], 
+                    Korisnik.create({username:req.body['imePrezimeStudent'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo'), 
                                     password:hash,
                                     LicniPodaciId:zapis.id,
                                     RolaId:3,
@@ -207,7 +209,7 @@ app.post("/pretragaKorisnicko", function(req, res){
         var ispis = '';
     var redovi = [];
         for(var i = 0; i < rez.length; i++){
-            if(rez[i].username === req.body['traziKorisnika']){
+            if(rez[i].username === req.body['traziKorisnika'].replace(/</g,'').replace(/>/g,'').replace(/SELECT/g,'').replace(/select/g,'').replace('/','').replace(/script/g,'mujo')){
                 var user = rez[i].LicniPodaciId;
                 LicniPodaci.findOne({where: {id:user}}).then(function(rez1){
                     console.log('USaooo');
